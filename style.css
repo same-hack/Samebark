@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+/* 全体の要素 */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  /* フレックスボックスの指定 */
+  display: flex;
+  /* 垂直方向の配置指定 */
+  align-items: center;
+  justify-content: center;
+}
+
+/* マットを敷く為の疑似要素 */
+.container::after {
+  /* 親要素に対し、絶対位置に配置 */
+  position: absolute;
+  top: 0; /* 上から0px */
+  left: 0; /* 左から0px */
+  width: 100%; /* 親要素の100% */
+  height: 100%; /* 親要素の100% */
+
+  /* 黒の透過50%のマット */
+  background: rgba(0, 0, 0, 0.6);
+  /* 疑似要素なのでcontentの記述は必須 */
+  content: "";
+}
+
+.clock-wrap {
+  color: azure;
+  font-size: 8rem;
+  font-weight: bold;
+  border: solid white 0.5rem;
+  width: 4.5em;
+  /* フレックスボックスの指定 */
+  display: flex;
+  /* 垂直方向の配置指定 */
+  align-items: center;
+  /* 左右中央揃え */
+  justify-content: center;
+
+  /* 以下2つを設定することで黒透過マットより前面にテキストを持ってこられます */
+  position: relative;
+  z-index: 1; /* 前面へ */
+}
